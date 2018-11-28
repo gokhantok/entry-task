@@ -1,0 +1,17 @@
+.app {
+  min-height: 100%;
+  padding-top: 65px;
+  background-color: #eeeeee;
+}
+
+.app-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.app-content {
+  width: 1200px;
+  margin: 0 auto;
+}
