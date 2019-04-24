@@ -7,10 +7,7 @@
   width: 360px;
   height: 420px;
   cursor: pointer;
-
-  &:not(:nth-child(3n)) {
-    margin: 0 60px 60px 0;
-  }
+  margin: 20px;
 }
 
 .recipes-card-image {
@@ -35,4 +32,8 @@
 
 .recipes-about-paragraph {
   margin: 10px 0;
+}
+
+.avatar-header-image {
+  background-size: cover;
 }

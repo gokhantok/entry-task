@@ -15,7 +15,7 @@
     <td mat-cell *matCellDef="let row">
       <ng-container *ngFor="let recipe of row.recipes; let last = last">
         <a [routerLink]="['/' + RoutePath.Recipes, recipe.id]">{{recipe.title}}</a>
-        <ng-container *ngIf="!last">,</ng-container>
+        <ng-container *ngIf="!last">,&nbsp;</ng-container>
       </ng-container>
     </td>
   </ng-container>

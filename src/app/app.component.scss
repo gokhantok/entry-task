@@ -1,6 +1,6 @@
 .app {
   min-height: 100%;
-  padding-top: 65px;
+  padding: 65px 8px 0 8px;
   background-color: #eeeeee;
 }
 
@@ -12,6 +12,7 @@
 }
 
 .app-content {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }

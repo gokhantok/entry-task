@@ -1,11 +1,25 @@
 <div class="recipes">
-  <mat-card *ngFor="let recipe of recipeListData$ | async"
-            class="recipes-card"
-            [routerLink]="['/' + RoutePath.Recipes, recipe.id]">
-    <img class="recipes-card-image" [src]="recipe.imageUrl">
-    <div class="recipes-card-title">{{recipe.title}}</div>
-    <div class="recipes-card-authors">by {{recipe.authorIds | appAuthorNames}}</div>
-  </mat-card>
+  <a
+    *ngFor="let recipe of recipeListData$ | async"
+    [routerLink]="['/' + RoutePath.Recipes, recipe.id]"
+  >
+    <mat-card class="recipes-card">
+      <mat-card-header>
+<!--        <div mat-card-avatar class="avatar-header-image" [ngStyle]="{'backgroundImage': 'url('+ au+')'}"></div>-->
+        <mat-card-title>{{recipe.title}}</mat-card-title>
+        <mat-card-subtitle>by {{recipe.authorIds | appAuthorNames}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="recipe.imageUrl" alt="recipe image">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </a>
+
 </div>
 <mat-divider></mat-divider>
 <div class="recipes-about">
