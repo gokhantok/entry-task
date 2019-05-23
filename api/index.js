@@ -30,6 +30,15 @@ function isValidRecipe(recipe) {
   );
 }
 
+function isValidAuthor(author) {
+  return (
+    author instanceof Object &&
+    typeof author.name === 'string' &&
+    typeof author.email === 'string' &&
+    typeof author.skill === 'number' 
+  );
+}
+
 let database = {
   authors: require('./authors.json'),
   recipes: require('./recipes.json')
@@ -102,6 +111,18 @@ app.post(RECIPES_PATH, ({body}, res) => {
   database = {...database, recipes: [...database.recipes, recipe]};
 
   delay(() => res.json(recipe));
+});
+
+app.post(AUTHORS_PATH, ({body}, res) => {
+  if (!isValidAuthor(body)) {
+    delay(() => res.status(400).json(BAD_REQUEST__RESPONSE));
+    return;
+  }
+
+  const author = {...body, id: Math.random().toString(16).substr(2, 8)};
+  database = {...database, authors: [...database.authors, author]};
+
+  delay(() => res.json(author));
 });
 
 app.listen(3000);

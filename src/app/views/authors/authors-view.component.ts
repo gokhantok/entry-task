@@ -8,6 +8,7 @@ enum AuthorsColumn {
   Name = 'Name',
   Email = 'Email',
   Recipes = 'Recipes',
+  Skill = "Skill",
 }
 
 @Component({
@@ -22,6 +23,7 @@ export class AuthorsViewComponent {
     AuthorsColumn.Name,
     AuthorsColumn.Email,
     AuthorsColumn.Recipes,
+    AuthorsColumn.Skill,
   ];
 
   readonly authorRows$ = this.store.pipe(select($authorRows));

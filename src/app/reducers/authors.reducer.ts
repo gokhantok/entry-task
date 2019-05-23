@@ -1,8 +1,10 @@
 import { AuthorsState } from '../models/helper/app-state.model';
-import { AuthorsActions, GetAuthorsRequestAction, GetAuthorsSuccessAction } from '../actions/authors.actions';
+import { AuthorsActions, GetAuthorsRequestAction, GetAuthorsSuccessAction, PostAuthorSuccessAction } from '../actions/authors.actions';
 
 const INITIAL_STATE: AuthorsState = {
-  data: [],
+  data: [
+
+  ],
   loading: false
 };
 
@@ -21,6 +23,16 @@ export function authorsReducer(state: AuthorsState = INITIAL_STATE,
         data: action.authors,
         loading: true
       };
+
+      case PostAuthorSuccessAction.type:
+        return {
+          ...state,
+          data: {
+            ...state.data,
+            [action.author.id!]: action.author
+          },
+          loading: false
+        };
 
     default:
       return state;

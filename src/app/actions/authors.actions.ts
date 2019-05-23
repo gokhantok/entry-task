@@ -13,6 +13,38 @@ export class GetAuthorsSuccessAction implements Action {
   constructor(public readonly authors: AuthorModel[]) { }
 }
 
+export class PutAuthorRequestAction implements Action {
+  static readonly type = 'PutAuthorRequest';
+  readonly type = PutAuthorRequestAction.type;
+
+  constructor(public readonly id: string,
+              public readonly author: AuthorModel[]) { }
+}
+
+export class PutAuthorSuccessAction implements Action {
+  static readonly type = 'PutAuthorSuccess';
+  readonly type = PutAuthorSuccessAction.type;
+
+  constructor(public readonly author: AuthorModel[]) { }
+}
+
+export class PostAuthorRequestAction implements Action {
+  static readonly type = 'PostAuthorRequest';
+  readonly type = PostAuthorRequestAction.type;
+
+  constructor(public readonly author: AuthorModel) { }
+}
+
+export class PostAuthorSuccessAction implements Action {
+  static readonly type = 'PostAuthorSuccess';
+  readonly type = PostAuthorSuccessAction.type;
+
+  constructor(public readonly author: AuthorModel) { }
+}
+
 export type AuthorsActions
   = GetAuthorsRequestAction
-  | GetAuthorsSuccessAction;
+  | GetAuthorsSuccessAction
+  | PutAuthorRequestAction
+  | PostAuthorSuccessAction
+  | PutAuthorSuccessAction;

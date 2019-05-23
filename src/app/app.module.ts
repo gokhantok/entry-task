@@ -15,6 +15,8 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
 import { MatSnackBarModule } from '@angular/material';
 import { ToolbarModule } from './components/toolbar/toolbar.module';
 import { BreadcrumbsModule } from './components/breadcrumbs/breadcrumbs.module';
+import { AuthorNamesPipe } from './pipes/author-names/author-names.pipe';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { BreadcrumbsModule } from './components/breadcrumbs/breadcrumbs.module';
     MatSnackBarModule,
     ToolbarModule,
     BreadcrumbsModule,
+
   ],
   providers: [
     {

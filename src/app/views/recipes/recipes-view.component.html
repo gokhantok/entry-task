@@ -1,6 +1,17 @@
+<div class="form-group">
+    <div class="col-md-6" >
+      <label class="search-box">
+          <input type="text" 
+          [formControl]="tags"
+          class="form-control" placeholder="Search By Tags" />
+      </label>
+    </div>
+    <button mat-raised-button (click)="orderbyASC()" > Sort by ASC!</button>
+    <button mat-raised-button  (click)="orderbyDESC()" > Sort by DESC!</button>
+</div>
 <div class="recipes">
   <a
-    *ngFor="let recipe of recipeListData$ | async"
+    *ngFor="let recipe of recipeListData$ | async | recipeFilterPipe:tags.value | recipeSorterPipe: this.orderby.value "
     [routerLink]="['/' + RoutePath.Recipes, recipe.id]"
   >
     <mat-card class="recipes-card">
@@ -8,6 +19,7 @@
 <!--        <div mat-card-avatar class="avatar-header-image" [ngStyle]="{'backgroundImage': 'url('+ au+')'}"></div>-->
         <mat-card-title>{{recipe.title}}</mat-card-title>
         <mat-card-subtitle>by {{recipe.authorIds | appAuthorNames}}</mat-card-subtitle>
+        <mat-card-subtitle>difficulty level {{recipe.difficulty}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image [src]="recipe.imageUrl" alt="recipe image">
       <mat-card-content>
@@ -16,6 +28,12 @@
           A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
           bred for hunting.
         </p>
+        <br>
+        <mat-chip-list>
+          <mat-chip *ngFor="let tag of recipe.tags">
+              {{tag}}
+          </mat-chip>
+        </mat-chip-list>
       </mat-card-content>
     </mat-card>
   </a>

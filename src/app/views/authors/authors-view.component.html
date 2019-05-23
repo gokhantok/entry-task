@@ -10,6 +10,11 @@
     <td mat-cell *matCellDef="let row">{{row.email}}</td>
   </ng-container>
 
+  <ng-container [matColumnDef]="AuthorsColumn.Skill">
+    <th mat-header-cell *matHeaderCellDef>Skill</th>
+    <td mat-cell *matCellDef="let row">{{row.skill}}</td>
+  </ng-container>
+
   <ng-container [matColumnDef]="AuthorsColumn.Recipes">
     <th mat-header-cell *matHeaderCellDef>Recipes</th>
     <td mat-cell *matCellDef="let row">

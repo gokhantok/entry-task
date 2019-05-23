@@ -34,7 +34,10 @@ export class RecipeDetailEffects {
   @Effect() readonly postRecipe$ = this.actions$.pipe(
     ofType(PostRecipeRequestAction.type),
     switchMap(({recipe}: PostRecipeRequestAction) => this.http.post<RecipeModel>('/recipes', recipe).pipe(
-      map(response => new PostRecipeSuccessAction(response))
+      map(response => {
+        window.location.reload();
+        return new PostRecipeSuccessAction(response);
+      })
     ))
   );
 

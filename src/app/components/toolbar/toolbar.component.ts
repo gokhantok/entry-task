@@ -6,6 +6,8 @@ import { RecipeFormComponent } from 'src/app/modal-views/recipe-form/recipe-form
 import { AppStateModel } from 'src/app/models/helper/app-state.model';
 import { Store, select } from '@ngrx/store';
 import { $toolbarRaised } from 'src/app/selectors/scroll.selectors';
+import { AuthorFormComponent } from 'src/app/modal-views/author-form/author-form.component';
+import { AuthorDialogDataModel } from 'src/app/models/helper/author-dialog-data.model';
 
 @Component({
   selector: 'app-toolbar',
@@ -23,6 +25,14 @@ export class ToolbarComponent {
     const dialogData: RecipeDialogDataModel = {};
     this.dialog.open(
       RecipeFormComponent, 
+      {disableClose: true, data: dialogData}
+    );
+  }
+
+  showNewAuthorDialog(): void {
+    const dialogData: AuthorDialogDataModel = {};
+    this.dialog.open(
+      AuthorFormComponent, 
       {disableClose: true, data: dialogData}
     );
   }
