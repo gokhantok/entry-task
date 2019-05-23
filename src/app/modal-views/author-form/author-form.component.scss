@@ -1,0 +1,43 @@
+.author-form {
+  width: 500px;
+}
+
+.author-form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author-form-field {
+  display: block;
+}
+
+.author-form-ingredient {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+.author-form-ingredient-field {
+  overflow: hidden;
+
+  &:nth-child(1) {
+    flex-basis: 40%; 
+  }
+
+  &:nth-child(2) {
+    flex-basis: 20%;
+  }
+
+  &:nth-child(3) {
+    flex-basis: 20%;
+  }
+
+  &:nth-child(4) {
+    flex-basis: 20%;
+  }
+}
+
+.author-form-textarea {
+  height: 200px;
+}
